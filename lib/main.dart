@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web3dart/web3dart.dart';
+import 'package:http/src/client.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Blockchain Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -31,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String targetAddress = "0xbe6990B887F86cB992cE58F475BE0F1DB165b59C";
+  final String targetAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
   EthereumAddress? ethereumAddress;
   Web3Client? client;
 
@@ -75,6 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 } else {
                   return Text(
                     "Balace: ${snapshot.data} ETH",
+                    style: const TextStyle(
+                      fontSize: 36,
+                    ),
                   );
                 }
               },
